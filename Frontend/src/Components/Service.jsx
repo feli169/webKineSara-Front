@@ -8,8 +8,8 @@ const Service = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("/Data/servicesData.json");
-        setServices(response.data);
+        const response = await axios.get("https://webkinesara-back.onrender.com/servicios");
+          setServices(response.data.servicios);
       } catch (error) {
         console.error("Error al cargar los servicios:", error);
       }
@@ -48,9 +48,11 @@ const Service = () => {
                 "
               >
                 <Card
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
+                  icon={service.icono}
+                  title={service.titulo}
+                  description={service.descripcion}
+                  price={service.precio}
+                  image={service.imagen}
                 />
               </div>
             ))}
